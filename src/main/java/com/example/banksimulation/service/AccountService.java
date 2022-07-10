@@ -1,6 +1,6 @@
 package com.example.banksimulation.service;
 
-import com.example.banksimulation.entity.Account;
+import com.example.banksimulation.model.Account;
 import com.example.banksimulation.enums.AccountType;
 
 import java.math.BigDecimal;

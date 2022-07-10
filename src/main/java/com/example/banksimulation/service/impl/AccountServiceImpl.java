@@ -1,6 +1,6 @@
 package com.example.banksimulation.service.impl;
 
-import com.example.banksimulation.entity.Account;
+import com.example.banksimulation.model.Account;
 import com.example.banksimulation.enums.AccountType;
 import com.example.banksimulation.repository.AccountRepository;
 import com.example.banksimulation.service.AccountService;

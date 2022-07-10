@@ -1,6 +1,6 @@
 package com.example.banksimulation.repository;
 
-import com.example.banksimulation.entity.Transaction;
+import com.example.banksimulation.model.Transaction;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;

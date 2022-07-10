@@ -1,4 +1,4 @@
-package com.example.banksimulation.entity;
+package com.example.banksimulation.model;
 
 
 import lombok.Builder;

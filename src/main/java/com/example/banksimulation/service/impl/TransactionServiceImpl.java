@@ -1,7 +1,7 @@
 package com.example.banksimulation.service.impl;
 
-import com.example.banksimulation.entity.Account;
-import com.example.banksimulation.entity.Transaction;
+import com.example.banksimulation.model.Account;
+import com.example.banksimulation.model.Transaction;
 import com.example.banksimulation.enums.AccountType;
 import com.example.banksimulation.exception.AccountOwnerShipException;
 import com.example.banksimulation.exception.BadRequestException;

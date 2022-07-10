@@ -1,7 +1,7 @@
 package com.example.banksimulation.service;
 
-import com.example.banksimulation.entity.Account;
-import com.example.banksimulation.entity.Transaction;
+import com.example.banksimulation.model.Account;
+import com.example.banksimulation.model.Transaction;
 
 import java.math.BigDecimal;
 import java.util.Date;

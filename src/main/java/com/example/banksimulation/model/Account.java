@@ -1,4 +1,4 @@
-package com.example.banksimulation.entity;
+package com.example.banksimulation.model;
 
 
 import com.example.banksimulation.enums.AccountType;
