@@ -1,5 +1,6 @@
 package com.example.banksimulation.repository;
 
+import com.example.banksimulation.enums.AccountStatus;
 import com.example.banksimulation.model.Account;
 import com.example.banksimulation.exception.RecordNotFoundException;
 import org.springframework.stereotype.Component;
@@ -10,6 +11,12 @@ import java.util.UUID;
 
 @Component
 public class AccountRepository {
+
+    AccountRepository accountRepository;
+
+    public AccountRepository(AccountRepository accountRepository) {
+        this.accountRepository = accountRepository;
+    }
 
     private static final List<Account> accountList = new ArrayList<>();
 
@@ -24,5 +31,11 @@ public class AccountRepository {
 
     public Account findById(UUID accountId) {
        return accountList.stream().filter( account -> account.getId().equals(accountId)).findAny().orElseThrow( () -> new RecordNotFoundException("This account is not in the database"));
+    }
+
+    public void deleteAccount(UUID accountId) {
+        Account account = accountRepository.findById(accountId);
+        account.setAccountStatus(AccountStatus.DELETED);
+        accountRepository.deleteAccount(accountId);
     }
 }
