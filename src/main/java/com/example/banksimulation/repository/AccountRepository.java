@@ -12,17 +12,12 @@ import java.util.UUID;
 @Component
 public class AccountRepository {
 
-    AccountRepository accountRepository;
-
-    public AccountRepository(AccountRepository accountRepository) {
-        this.accountRepository = accountRepository;
-    }
-
-    private static final List<Account> accountList = new ArrayList<>();
+    public static List<Account> accountList = new ArrayList<>();
 
     public Account save(Account account) {
         accountList.add(account);
         return account;
+
     }
 
     public static List<Account> findAll() {
@@ -30,12 +25,14 @@ public class AccountRepository {
     }
 
     public Account findById(UUID accountId) {
-       return accountList.stream().filter( account -> account.getId().equals(accountId)).findAny().orElseThrow( () -> new RecordNotFoundException("This account is not in the database"));
+        return accountList.stream().filter(account -> account.getId().equals(accountId)).findAny().orElseThrow(() ->
+                new RecordNotFoundException("This account is not in the database"));
     }
 
-    public void deleteAccount(UUID accountId) {
-        Account account = accountRepository.findById(accountId);
-        account.setAccountStatus(AccountStatus.DELETED);
-        accountRepository.deleteAccount(accountId);
+    public Account deleteAccount(Account account) {
+        accountList.remove(findById(account.getId()));
+        accountList.add(account);
+        return account;
+
     }
 }

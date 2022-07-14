@@ -1,5 +1,6 @@
 package com.example.banksimulation.service.impl;
 
+import com.example.banksimulation.enums.AccountStatus;
 import com.example.banksimulation.model.Account;
 import com.example.banksimulation.enums.AccountType;
 import com.example.banksimulation.repository.AccountRepository;
@@ -33,7 +34,9 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public void deleteAccount(UUID account) {
-        accountRepository.deleteAccount();
+    public void deleteAccount(UUID accountId) {
+        Account account = accountRepository.findById(accountId);
+        account.setAccountStatus(AccountStatus.DELETED);
+        accountRepository.deleteAccount(account);
     }
 }
